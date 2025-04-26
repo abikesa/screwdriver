@@ -406,99 +406,179 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="life">
 <span id="id1"></span><h1>Life ⚓️<a class="headerlink" href="#life" title="Permalink to this heading">#</a></h1>
 <style>
-  /* Apply styles only to elements with the custom class */
-  .custom-details summary {
-    list-style: none;  /* Remove default dropdown triangle */
+/* ╭━━━☆━━━╮  FLOAT FRAMES (Figure / Seealso) */
+.float-frame {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    position: relative;
+    padding: 10px 14px;
+    margin: 15px;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.float-frame.figure-style {
+    float: right;
+    width: 35%;
+    text-align: center;
+}
+
+.float-frame.left-style {
+    float: left;
+    width: 35%;
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 0;
+}
+
+.float-frame.seealso-style {
+    float: right;
+    display: inline-block;
+    width: 190px;
+    max-width: 190px;
+    min-width: 100px;
+    padding: 6px 10px;
+    font-size: 13px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Responsive override for all floats */
+@media (max-width: 768px) {
+    .float-frame,
+    .float-frame.seealso-style {
+        float: none !important;
+        display: block;
+        width: 95vw !important;
+        max-width: 95vw !important;
+        margin: 10px auto;
+        white-space: normal;
+    }
+}
+
+/* ╭━━━☆━━━╮  BLOCKQUOTES */
+blockquote {
+    border-left: 2px solid #999;
+    padding-left: 1em;
+    margin: 0;
+    color: #444;
+    font-style: italic;
+    background: none;
+}
+
+blockquote a {
+    text-decoration: none;
+    font-style: normal;
+    color: #333;
+    border-bottom: 1px dotted #aaa;
+}
+blockquote a:hover {
+    color: #000;
+    border-bottom: 1px solid #555;
+}
+
+/* ╭━━━☆━━━╮  COLLAPSIBLE <details> BLOCKS */
+.custom-details summary {
     cursor: pointer;
-    font-weight: normal; /* Normal text weight */
+    font-weight: normal;
     display: inline-block;
     padding: 5px 15px;
-    border: 2px dotted black; /* Dotted circle */
-    border-radius: 20px; /* Make it rounded */
+    border: 2px dotted black;
+    border-radius: 20px;
     text-align: center;
-    transition: color 0.3s ease-in-out; /* Smooth transition */
-  }
+    transition: color 0.3s ease-in-out;
+}
+.custom-details summary:hover {
+    color: lightgray;
+}
+.custom-details summary::-webkit-details-marker {
+    display: none;
+}
 
-  .custom-details summary:hover {
-    color: lightgray; /* Change text color on hover */
-  }
+/* ╭━━━☆━━━╮  NESTED QUOTES INSIDE DETAILS */
+.quote-content {
+    border-left: 4px solid #ccc;
+    padding-left: 10px;
+    color: #555;
+    font-style: italic;
+    margin-top: 15px;
+}
+.quote-content details {
+    margin-top: 10px;
+}
+.quote-content summary {
+    font-weight: bold;
+    cursor: pointer;
+}
 
-  .custom-details summary::-webkit-details-marker {
-    display: none; /* Remove marker in WebKit (Chrome, Safari) */
-  }
-</style>
-<details class="custom-details">
-  <summary>+ Expand</summary>
-  <iframe src="../pdfs/mozart.pdf" width="100%" height="1000px" style="borders:none"></iframe>
-  <blockquote style="border-left: 4px solid #ccc; padding-left: 10px; color: #555;">
-     <em>
-<details>
-    <summary></summary>
-  <blockquote style="border-left: 4px solid #ccc; padding-left: 10px; color: #555;">
-     <em>
-      <ul>
-        <li>What makes for a suitable problem for AI (Demis Hassabis, Nobel Lecture)?
-          <ul>
-            <li>Space: Massive combinatorial search space</li>
-            <li>Function: Clear objective function (metric) to optimize against</li>
-            <li>Time: Either lots of data and/or an accurate and efficient simulator</li>
-          </ul>
-        </li>
-        <li>Guess what else fits the bill (Yours truly, amateur philosopher)?
-          <ul>
-            <li><strong>Space</strong>
-              <ol>
-                <li>Intestines/villi</li>
-                <li>Lungs/bronchioles</li>
-                <li>Capillary trees</li>
-                <li>Network of lymphatics</li>
-                <li>Dendrites in neurons</li>
-                <li>Tree branches</li>
-              </ol>
-            </li>
-            <li><strong>Function</strong>
-              <ol>
-                <li>Energy</li>
-                <li>Aerobic respiration</li>
-                <li>Delivery to "last mile" (minimize distance)</li>
-                <li>Response time (minimize)</li>
-                <li>Information</li>
-                <li>Exposure to sunlight for photosynthesis</li>
-              </ol>
-            </li>
-            <li><strong>Time</strong>
-              <ol>
-                <li>Nourishment</li>
-                <li>Gaseous exchange</li>
-                <li>Oxygen & Nutrients (Carbon dioxide & "Waste")</li>
-                <li>Surveillance for antigens</li>
-                <li>Coherence of functions</li>
-                <li>Water and nutrients from soil</li>
-              </ol>
-            </li>
-          </ul>
-        </li>
-      </ul>
-     </em>
-  </blockquote>
-</details>
-    </em>
-   <p>--<a href="https://www.nobelprize.org/prizes/chemistry/2024/hassabis/facts/"> Nobel Prize in Chemistry, 2024</a></p>
- </blockquote>
-</details>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const details = document.querySelector(".custom-details");
-    const summary = details.querySelector("summary");
+/* ╭━━━☆━━━╮  FLOATING IMAGES */
+.float-right {
+    float: right;
+    width: 35%;
+    margin-left: 15px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+.float-right img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-    details.addEventListener("toggle", function() {
-      summary.textContent = details.open ? "- Collapse" : "+ Expand";
-    });
-  });
-</script>
-<p></p>
-<p></p>
-<p><strong>The Negotiated Life: An Essay on Non-Self, Self, Boundaries, Negotiation, and Flourishing</strong><br />
+/* ╭━━━☆━━━╮  MAGNIFY ICON OVERLAY */
+.image-bubble.layered-icon {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 12px;
+    height: 10px;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 5;
+}
+.large-icon, .small-icon {
+    position: absolute;
+    border-radius: 2px;
+}
+.large-icon {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    border: 1px solid #888;
+}
+.small-icon {
+    width: 50%;
+    height: 50%;
+    background-color: #aaa;
+    border: 1px solid #666;
+    bottom: -1px;
+    left: -1px;
+}
+.image-bubble.layered-icon:hover .large-icon {
+    background-color: #007BFF;
+    border-color: #0056b3;
+}
+.image-bubble.layered-icon:hover .small-icon {
+    background-color: white;
+    border-color: #007BFF;
+}
+
+.float-frame pre,
+.float-frame div.highlight,
+.float-frame code {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: block;
+}
+
+</style><p><strong>The Negotiated Life: An Essay on Non-Self, Self, Boundaries, Negotiation, and Flourishing</strong><br />
 <em>For the student who became the flame, and the teacher who built a hearth around it.</em></p>
 <p>It begins not with the self, but with what the self is not. The non-self—cold, vast, unshaped, not-yet-met. It is the stranger on the street, the rustle in the trees, the silence before language. It is not what we are, but what we face. The original condition is confrontation, or perhaps more gently, adjacency. Before a child speaks its name, it must cry into a world that has not yet answered. The non-self surrounds, looms, beckons, and sometimes crushes. It is the raw grain of the world before it is milled by familiarity. It has teeth and frost and the moral neutrality of weather. You do not reason with the non-self. You either retreat, adapt, or perish. And yet from this abyss of alienation, the self must carve something livable.</p>
 <p>The self does not emerge whole, but as a series of stammering assertions against that which it cannot contain. It is a flicker in the dark, a hesitant yes. It calls itself “I” not because it has mastered its form, but because it must differentiate. The self is born out of repetition—the internalization of habits, the drawing of circles around what it can tolerate and control. In the beginning, the self is survival. Later it becomes expression. But before it becomes a voice, it is first a perimeter. And this is where boundaries arise—not as prisons, not yet—but as skin. They are what keep the outside out and the inside intact.</p>
@@ -515,17 +595,17 @@ document.write(`
 <hr class="docutils" />
 <div class="float-frame float-right">
     <!-- Primary Image Anchor -->
-    <a href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Peacock_Plumage.jpg" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Peacock_Plumage.jpg" alt="Paranoid Mythology">
+    <a href="../figures/pointing.jpg" target="_blank">
+        <img src="../figures/pointing.jpg" alt="Paranoid Mythology">
     </a>
     <!-- Symbolic Overlay -->
-    <a class="image-bubble layered-icon" href="https://upload.wikimedia.org/wikipedia/commons/c/c5/Peacock_Plumage.jpg" target="_blank" title="Click to magnify">
+    <a class="image-bubble layered-icon" href="../figures/pointing.jpg" target="_blank" title="Click to magnify">
         <div class="large-icon"></div>
         <div class="small-icon"></div>
     </a>
  <!-- Epistemic Marker (MyST Figure Directive) -->
 <figure class="align-default" id="figures-pointing">
-<a class="reference internal image-reference" href="../_images/pointing.jpg"><img alt="../_images/pointing.jpg" src="../_images/pointing.jpg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="https://www.ledr.com/colours/white.jpg"><img alt="https://www.ledr.com/colours/white.jpg" src="https://www.ledr.com/colours/white.jpg" style="width: 1px; height: 1px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text"><em>Michelangelo’s Finder</em>. Raymond Tallis speaks our language: nonself, self, boundaries, negotiation, flourishing. The finger belongs to third-person “nonself.” Boundaries belong to second-person with whom someone is in dialogue, perhaps about some third person.</span><a class="headerlink" href="#figures-pointing" title="Permalink to this image">#</a></p>
 </figcaption>
