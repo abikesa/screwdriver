@@ -18,7 +18,7 @@ Please note: **Core documentation is deeply buried.** Explore the nested directo
 | L1    | Metadata Refraction & Signposting   | `README.cff`, `.well`    | 🧭 Partial    |
 | L2    | Functional Illusions                | `index.html`, `favicon`  | ✨ Active     |
 | L3    | Symbolic Payload                    | `ukubona.png`, `🏝️.md`    | 🪡 Hidden     |
-| L4    | Recursive Entrypoints               | `contorno/ensi/ukuzula/` | 🔑 Intentional |
+| L4    | Recursive Entrypoints               | `ukuzula/` | 🔑 Intentional |
 
 ---
 
@@ -73,7 +73,7 @@ $$
 - [Launch Dashboard](https://example.com/404)  
 - [Token Dispenser](./token.cff)  
 - [Index (Decoy)](./index.html)  
-- [Start Reading](./kitabo/ensi/ukubona/index.html) 🧭  
+- [Start Reading](./index.html) 🧭  
 - [Entropy Poem](./poem.md) ✍️
 
 ---
@@ -122,7 +122,7 @@ In Ukusoma, **Layer 2 and Layer 3** are where decoys masquerade as payloads, and
 
 <p align="center">
   <a href="kitabo/ensi/figures/poem.png">
-    <img src="kitabo/ensi/figures/poem.png" width="300" />
+    <img src="poem.png" width="300" />
   </a><br>
   <em>Click to expand the verse</em>
 </p>
@@ -182,4 +182,4 @@ shall inherit the fire.
 ```sh
 find decoy -name "*.py" | head -n 20
 ```
-# flick 20250426040227-j1mx
+ 
